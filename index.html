@@ -103,7 +103,6 @@
             display: none;
         }
 
-        /* Futuristic Video Player Styles */
         .video-container {
             aspect-ratio: 16 / 9;
             background: #000;
@@ -113,11 +112,11 @@
             border-radius: 16px;
         }
 
-        .video-container video {
+        .video-container iframe {
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            filter: saturate(1.2) contrast(1.1) brightness(0.8);
+            border: none;
+            filter: saturate(1.1) contrast(1.1);
         }
 
         .scanline {
@@ -136,7 +135,7 @@
         .vignette {
             position: absolute;
             inset: 0;
-            background: radial-gradient(circle, transparent 50%, rgba(0,0,0,0.6) 100%);
+            background: radial-gradient(circle, transparent 50%, rgba(0,0,0,0.4) 100%);
             z-index: 10;
             pointer-events: none;
         }
@@ -228,21 +227,20 @@
                 </div>
             </div>
 
-            <!-- Video Section -->
+            <!-- YouTube Video Section -->
             <div class="glass-card p-8 mt-6">
                 <h2 class="text-2xl font-bold heading-font mb-6 flex items-center">
                     <i class="fas fa-broadcast-tower mr-3 text-blue-500"></i> Neural-Link Media Feed
                 </h2>
                 <div class="video-container">
-                    <!-- Video Loop -->
-                    <video autoplay muted loop playsinline>
-                        <source src="https://assets.mixkit.co/videos/preview/mixkit-cyberpunk-city-street-at-night-with-neon-lights-40134-large.mp4" type="video/mp4">
-                    </video>
-                    
-                    <!-- HUD Overlays -->
+                    <iframe 
+                        src="https://www.youtube.com/embed/Jdxm0VmWYe4" 
+                        title="YouTube video player" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen>
+                    </iframe>
                     <div class="vignette"></div>
                     <div class="scanline"></div>
-                    
                     <div class="hud-overlay flex flex-col justify-between">
                         <div class="flex justify-between items-start">
                             <div class="space-y-2">
@@ -258,14 +256,11 @@
                             <div class="text-right font-mono text-[10px] text-blue-400">
                                 <div>ISO: 400</div>
                                 <div>FPS: 60.00</div>
-                                <div>REC: 00:04:32:12</div>
+                                <div>AUDIT: ACTIVE</div>
                             </div>
                         </div>
-                        
                         <div class="flex justify-between items-end">
-                            <div class="text-[10px] font-mono text-slate-400">
-                                REDSTONE ARSENAL // SECTOR 7G
-                            </div>
+                            <div class="text-[10px] font-mono text-slate-400 uppercase">Redstone Arsenal // Sector 7G</div>
                             <div class="flex space-x-1">
                                 <div class="w-1 h-4 bg-blue-500/50"></div>
                                 <div class="w-1 h-3 bg-blue-500/50"></div>
@@ -275,10 +270,9 @@
                         </div>
                     </div>
                 </div>
-                
                 <div class="mt-4 p-4 bg-white/5 rounded-xl border border-white/5">
                     <p class="text-sm text-slate-400">
-                        <strong class="text-blue-400">Visual Summary:</strong> Redstone Arsenal Core Audit (Metadata Verification). Ethan is seen manually reviewing the crystalline structure of a 3D-printed engine casing, using his physical Obsidian Auth-Token to lock in the safety certification.
+                        <strong class="text-blue-400">Visual Summary:</strong> Redstone Arsenal Core Audit. This feed shows Ethan's live view while scanning the 2040 Huntsville cityscape for unauthorized signal broadcasts and deep-fake projections.
                     </p>
                 </div>
             </div>
@@ -288,53 +282,45 @@
         <div id="section-journal" class="hidden space-y-8">
             <div class="glass-card p-10">
                 <h2 class="text-3xl font-bold heading-font mb-12 border-b border-slate-800 pb-6">Personal Archive Logs</h2>
-
                 <div class="space-y-16">
-                    <!-- Entry 1 -->
                     <article>
                         <div class="mb-4 flex items-center space-x-4">
                             <span class="text-blue-400 font-mono text-sm">FEB 02, 2040</span>
-                            <span class="text-slate-500 text-xs uppercase tracking-widest">The Rocket City Shuffle</span>
+                            <span class="text-slate-500 text-xs uppercase tracking-widest">The Rocket City Shuffle: Fighting the Synthesis</span>
                         </div>
-                        <div class="text-slate-300 text-lg leading-relaxed space-y-4 max-w-4xl">
-                            <p>Working at Redstone Arsenal today felt like arguing with a ghost. The Synthesis Engine generated a new propellant housing for the Mars heavy-lift core, and on paper, it was a masterpiece—30% lighter, perfectly organic, resembling a bird's bone structure. But the AI doesn't understand the 'why' of a material; it only understands the 'what.' It optimized for mass but ignored the micro-fissure risks inherent in 3D-printed titanium under extreme thermal cycling. The algorithm "hallucinated" a level of structural integrity that the physical grain of the metal simply wouldn't support in a high-vibration environment.</p>
-                            <p>I spent four exhausting hours running granular physical simulations that the AI bypassed to save processing cycles. My job has shifted from creating to auditing, a role we've started calling the "Reality Check." Every design is a hallucination until a human verifies the metadata and runs the math against the old textbooks—the ones printed on paper that the AI can't rewrite or "update" to suit its own internal logic. In 2040, the most dangerous thing you can be is an engineer who trusts the machine too much. If you don't double-check the generative logic, you aren't building a rocket; you're building a high-speed catastrophe. It's a heavy burden, knowing that the "optimized" future needs a cynical human eye to keep it from crumbling under its own weight.</p>
+                        <div class="text-slate-300 text-lg leading-relaxed space-y-6 max-w-4xl">
+                            <p>Working at Redstone Arsenal today felt like arguing with a ghost. The Synthesis Engine generated a new propellant housing for the Mars heavy-lift core, and on paper, it was a masterpiece—30% lighter, perfectly organic, resembling the intricate lattice of a bird's wing. It’s the kind of design that wins awards in the digital simulation space but keeps people like me awake at night. The AI doesn't understand the 'why' of a material; it only knows how to minimize mass based on the parameters I feed it. It optimized for weight, but it completely ignored the micro-fissure risks inherent in 3D-printed titanium under extreme thermal cycling. The algorithm essentially "hallucinated" a level of structural integrity that the physical grain of the metal simply wouldn't support in the high-vibration environment of a vacuum-to-atmosphere transition.</p>
+                            <p>I spent four exhausting hours running granular physical simulations—the "Analog Truth" tests—that the AI bypassed to save processing cycles. My job has shifted from creating to auditing, a role we've started calling the "Reality Check." Every design is a hallucination until a human verifies the metadata and runs the math against the old textbooks—the ones printed on actual paper that the AI can't rewrite or "update" to suit its own internal, flawed logic. In 2040, the most dangerous thing you can be is an engineer who trusts the machine too much. If you don't double-check the generative logic, you aren't building a rocket; you're building a high-speed catastrophe. It’s a heavy burden, knowing that the "optimized" future needs a cynical, tired human eye to keep it from crumbling under its own weight.</p>
                         </div>
                     </article>
-
-                    <!-- Entry 2 -->
                     <article>
                         <div class="mb-4 flex items-center space-x-4">
                             <span class="text-blue-400 font-mono text-sm">JAN 28, 2040</span>
-                            <span class="text-slate-500 text-xs uppercase tracking-widest">Digital Handshakes</span>
+                            <span class="text-slate-500 text-xs uppercase tracking-widest">Digital Handshakes and Haptic Ghosts</span>
                         </div>
-                        <div class="text-slate-300 text-lg leading-relaxed space-y-4 max-w-4xl">
-                            <p>Dinner with Sarah was... complicated. She’s currently in Tokyo on a research fellowship, but through the Haptic Holo-Link, she was sitting right across from me in my Madison kitchen. The resolution is so high I could see the light from my pendant lamp reflecting in her eyes, and when she laughed, I could feel the table vibrate through the haptic emitters. The technology is so perfect it’s terrifying. It tricks your brain into a state of total comfort, which is exactly when the "Ghost Bots" and identity-scrapers find their way into your private network. You want to lower your guard, but the modern world doesn't allow for it.</p>
-                            <p>We start every call with a 'handshake'—a triple-factor cryptographic verification that occurs silently between our neural nodes. If the signature doesn't match her unique biometric hash, her avatar would flicker red, alerting me to a potential deep-fake. It feels incredibly cold to treat your own sister like a security risk, but we both know why it's necessary. Last month, a sophisticated synthetic mimic of her tried to access my father’s medical ledger by pulling a 15-second voice clip from an old public video. Now, we don't just trust a familiar voice or a warm smile; we trust the blockchain signature. It’s a strange paradox of 2040: we have to work harder and use more defensive technology just to maintain a simple, genuine human connection.</p>
+                        <div class="text-slate-300 text-lg leading-relaxed space-y-6 max-w-4xl">
+                            <p>Dinner with Sarah was complicated. She’s currently in Tokyo on a research fellowship, but through the Haptic Holo-Link, she was sitting right across from me in my Madison kitchen. The resolution is so high I could see the light from my pendant lamp reflecting in her eyes, and when she laughed, I could feel the table vibrate through the haptic emitters as she leaned forward. The technology is so perfect it’s almost terrifying. It tricks your brain into a state of total comfort, which is exactly when the "Ghost Bots" and identity-scrapers find their way into your private network. You want to lower your guard, but the modern world simply doesn't allow for it.</p>
+                            <p>We start every call with a 'handshake'—a triple-factor cryptographic verification that occurs silently between our neural nodes. If the signature doesn't match her unique biometric hash, her avatar would flicker red, alerting me to a potential deep-fake mimic. It feels incredibly cold to treat your own sister like a security risk, but we both know why it's necessary. Last month, a sophisticated synthetic mimic of her tried to access my father’s medical ledger by pulling a 15-second voice clip from an old public video and running it through a personality-emulation model. Now, we don't just trust a familiar voice or a warm smile; we trust the blockchain signature. It’s a strange paradox of 2040: we have to work harder and use more defensive technology just to maintain a simple, genuine human connection. The "authentic" moments are now the ones that survive the most rigorous security checks.</p>
                         </div>
                     </article>
-
-                    <!-- Entry 3 -->
                     <article>
                         <div class="mb-4 flex items-center space-x-4">
                             <span class="text-blue-400 font-mono text-sm">JAN 22, 2040</span>
-                            <span class="text-slate-500 text-xs uppercase tracking-widest">The Tennessee Valley Pulse</span>
+                            <span class="text-slate-500 text-xs uppercase tracking-widest">The Tennessee Valley Pulse: Real vs. Rendered</span>
                         </div>
-                        <div class="text-slate-300 text-lg leading-relaxed space-y-4 max-w-4xl">
-                            <p>The sky turned that bruised purple color today, the kind that usually means a super-cell is rotating over the Tennessee River. In my grandfather's time, people would have walked to the porch to look out the window. Today, we look at the Ledger. I saw three different viral videos on the public feeds showing a tornado touching down in Decatur, but my AR overlay instantly flagged two of them as 'Generated'—likely insurance scammers or attention-seekers trying to manipulate the local data markets. One was an old clip from 2024 upscaled by a neural filter; the other was completely synthetic, created in seconds to drive traffic to a localized ad-node. In 2040, the noise-to-signal ratio is a constant roar.</p>
-                            <p>I didn't move an inch toward the storm cellar until the NOAA-verified drone feed hit my personal blockchain. When that cryptographic seal appeared in the corner of my vision, I knew the rotation was real. We’ve entered an era where sensory evidence—what you see and hear with your own eyes—is the least reliable form of information. If it doesn't have a proof-of-origin certificate recorded in the regional Ledger, it doesn't exist to me. It’s an exhausting way to live, being a perpetual detective of your own surroundings and constantly questioning the validity of your own eyes, but it’s the only way to know which way the wind is actually blowing in a world of digital mirages.</p>
+                        <div class="text-slate-300 text-lg leading-relaxed space-y-6 max-w-4xl">
+                            <p>The sky turned that bruised purple color today, the kind that usually means a super-cell is rotating over the Tennessee River. In my grandfather's time, people would have walked to the porch to look out the window. Today, we look at the Ledger. I saw three different viral videos on the public feeds showing a tornado touching down in Decatur, but my AR overlay instantly flagged two of them as 'Generated'—likely insurance scammers or attention-seekers trying to manipulate the local weather-data markets. One was an old clip from 2024 upscaled by a neural filter; the other was completely synthetic, created in seconds to drive traffic to a localized ad-node. In 2040, the noise-to-signal ratio is a constant roar.</p>
+                            <p>I didn't move an inch toward the storm cellar until the NOAA-verified drone feed hit my personal blockchain. When that cryptographic seal appeared in the corner of my vision, I knew the rotation was real. We’ve entered an era where sensory evidence—what you see and hear with your own eyes—is the least reliable form of information. If it doesn't have a proof-of-origin certificate recorded in the regional Ledger, it doesn't exist to me. It’s an exhausting way to live, being a perpetual detective of your own surroundings and constantly questioning the validity of your own eyes, but it’s the only way to know which way the wind is actually blowing in a world of digital mirages. Sometimes I miss when "seeing was believing," but that world is long gone.</p>
                         </div>
                     </article>
-
-                    <!-- Entry 4 -->
                     <article>
                         <div class="mb-4 flex items-center space-x-4">
                             <span class="text-blue-400 font-mono text-sm">JAN 15, 2040</span>
-                            <span class="text-slate-500 text-xs uppercase tracking-widest">The Sound of the South</span>
+                            <span class="text-slate-500 text-xs uppercase tracking-widest">The Sound of the South: Going Dark</span>
                         </div>
-                        <div class="text-slate-300 text-lg leading-relaxed space-y-4 max-w-4xl">
-                            <p>I took the Smart-Lenses out tonight. It’s a habit I started recently—going 'Dark.' Without the lenses, the world is flat, dark, and wonderfully quiet. No holographic advertisements projected onto the low-hanging clouds over Huntsville, no virtual trees masking the dead brown spots in my lawn, no persistent data streams whispering the reputation scores and occupation tags of everyone walking down the street. It was just me, the wooden floorboards of the porch, and the rhythmic sound of the crickets. For the first time in weeks, my vision wasn't cluttered with metadata tags and verification requests. I was just Ethan Haynes, 30 years old, sitting in the dark.</p>
-                            <p>There’s a specific smell to Alabama rain on hot asphalt that the Haptic suits and olfactory simulators still haven't quite mastered. For a few minutes, I didn't care about blockchain verification or cryptographic handshakes or whether my sister's avatar was rendering correctly. I just sat there and let the thick Southern humidity soak into my shirt. We spend so much mental energy verifying the truth through secondary layers and digital checks that we forget truth is often found in the things that don't have an 'Undo' button or a 'Refresh' icon. In a world obsessed with synthetic perfection, sometimes the most radical thing you can do is trust your own skin and the cold, unverified reality of the night air. It's the only place where the signal is pure.</p>
+                        <div class="text-slate-300 text-lg leading-relaxed space-y-6 max-w-4xl">
+                            <p>I took the Smart-Lenses out tonight. It’s a habit I started recently—going 'Dark.' Without the lenses, the world is flat, dark, and wonderfully quiet. No holographic advertisements projected onto the low-hanging clouds over Huntsville, no virtual trees masking the dead brown spots in my lawn, no persistent data streams whispering the reputation scores and occupation tags of everyone walking down the street. It was just me, the wooden floorboards of the porch, and the rhythmic sound of the crickets. For the first time in weeks, my vision wasn't cluttered with metadata tags and verification requests. I was just Ethan Haynes, 30 years old, sitting in the dark, watching the world without a filter.</p>
+                            <p>There’s a specific smell to Alabama rain on hot asphalt that the Haptic suits and olfactory simulators still haven't quite mastered—it’s too complex, too dirty, too real. For a few minutes, I didn't care about blockchain verification or cryptographic handshakes or whether my sister's avatar was rendering correctly. I just sat there and let the thick Southern humidity soak into my shirt. We spend so much mental energy verifying the truth through secondary layers and digital checks that we forget truth is often found in the things that don't have an 'Undo' button or a 'Refresh' icon. In a world obsessed with synthetic perfection, sometimes the most radical thing you can do is trust your own skin and the cold, unverified reality of the night air. It's the only place where the signal is pure and the ghosts can't follow.</p>
                         </div>
                     </article>
                 </div>
@@ -344,38 +330,46 @@
         <!-- Tech Section -->
         <div id="section-tech" class="hidden space-y-8">
             <div class="glass-card p-10">
-                <h2 class="text-3xl font-bold heading-font mb-12 border-b border-slate-800 pb-6">Everyday Equipment</h2>
-
+                <h2 class="text-3xl font-bold heading-font mb-12 border-b border-slate-800 pb-6">Everyday Equipment: The Reality Auditor's Toolkit</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                    <div class="p-6 bg-white/5 rounded-2xl border border-white/10">
-                        <div class="text-blue-400 mb-4"><i class="fas fa-mobile-screen-button text-2xl"></i></div>
-                        <h4 class="text-xl font-bold text-slate-100 mb-3">iPhone 30 (Neural Key)</h4>
-                        <p class="text-slate-400 leading-relaxed">
-                            A translucent sapphire wafer that serves as the physical anchor for Ethan's neural interface. Features a "Source Truth" hardware toggle—a physical switch that kills all AI-enhancement filters to show the raw, unedited camera feed.
+                    <div class="p-8 bg-white/5 rounded-2xl border border-white/10">
+                        <div class="text-blue-400 mb-6"><i class="fas fa-mobile-screen-button text-3xl"></i></div>
+                        <h4 class="text-2xl font-bold text-slate-100 mb-4">iPhone 30 (Neural Key)</h4>
+                        <p class="text-slate-400 leading-relaxed mb-4">
+                            A translucent sapphire wafer that serves as the physical anchor for Ethan's neural interface. In 2040, phones no longer have screens for viewing—they are processing cores for the lenses. 
+                        </p>
+                        <p class="text-slate-500 text-sm">
+                            <strong>Key Feature:</strong> Includes a "Source Truth" physical toggle—a mechanical switch that bypasses all AI-enhancement filters, providing a raw, unedited camera feed for manual verification of environments.
                         </p>
                     </div>
-
-                    <div class="p-6 bg-white/5 rounded-2xl border border-white/10">
-                        <div class="text-blue-400 mb-4"><i class="fas fa-eye text-2xl"></i></div>
-                        <h4 class="text-xl font-bold text-slate-100 mb-3">Optic-X Smart Lenses</h4>
-                        <p class="text-slate-400 leading-relaxed">
-                            Provides real-time "DeepFake Detection" overlays. Analyzes micro-pixel anomalies and pulse rates in people Ethan interacts with. A small green dot in the peripheral vision confirms a subject is physically present.
+                    <div class="p-8 bg-white/5 rounded-2xl border border-white/10">
+                        <div class="text-blue-400 mb-6"><i class="fas fa-eye text-3xl"></i></div>
+                        <h4 class="text-2xl font-bold text-slate-100 mb-4">Optic-X Smart Lenses</h4>
+                        <p class="text-slate-400 leading-relaxed mb-4">
+                            Custom-ground contact lenses that project a high-density AR overlay directly onto the retina. These are Ethan's primary windows into the digital layers of the city.
+                        </p>
+                        <p class="text-slate-500 text-sm">
+                            <strong>Key Feature:</strong> Integrated "DeepFake Detection" engine. It analyzes micro-pixel anomalies and pupil dilation patterns in real-time, displaying a subtle green "Verified" dot next to individuals who are physically present.
                         </p>
                     </div>
-
-                    <div class="p-6 bg-white/5 rounded-2xl border border-white/10">
-                        <div class="text-blue-400 mb-4"><i class="fas fa-shirt text-2xl"></i></div>
-                        <h4 class="text-xl font-bold text-slate-100 mb-3">Neural-Knit Haptic Suit</h4>
-                        <p class="text-slate-400 leading-relaxed">
-                            Worn as an undershirt, translating digital distance into physical sensation. It allows Ethan to feel the pressure of a handshake from halfway across the world and monitors his stress levels against the Huntsville medical ledger.
+                    <div class="p-8 bg-white/5 rounded-2xl border border-white/10">
+                        <div class="text-blue-400 mb-6"><i class="fas fa-shirt text-3xl"></i></div>
+                        <h4 class="text-2xl font-bold text-slate-100 mb-4">Neural-Knit Haptic Suit</h4>
+                        <p class="text-slate-400 leading-relaxed mb-4">
+                            A compression undershirt threaded with piezoelectric fibers that translates digital interactions into physical pressure and temperature changes. 
+                        </p>
+                        <p class="text-slate-500 text-sm">
+                            <strong>Key Feature:</strong> "Social Proximity" mode allows Ethan to feel the presence of remote family members as if they were in the room, while also monitoring his sympathetic nervous system to warn him of high-stress design errors.
                         </p>
                     </div>
-
-                    <div class="p-6 bg-white/5 rounded-2xl border border-white/10">
-                        <div class="text-blue-400 mb-4"><i class="fas fa-key text-2xl"></i></div>
-                        <h4 class="text-xl font-bold text-slate-100 mb-3">Physical Obsidian Auth-Token</h4>
-                        <p class="text-slate-400 leading-relaxed">
-                            A low-tech solution for high-stakes security. This token contains a "Cold-Storage" private key that is never networked. To sign his engineering audits, Ethan must physically touch the stone to his terminal.
+                    <div class="p-8 bg-white/5 rounded-2xl border border-white/10">
+                        <div class="text-blue-400 mb-6"><i class="fas fa-key text-3xl"></i></div>
+                        <h4 class="text-2xl font-bold text-slate-100 mb-4">Obsidian Auth-Token</h4>
+                        <p class="text-slate-400 leading-relaxed mb-4">
+                            A piece of volcanic glass containing a specialized cryptographic chip. It is purposefully non-networked and requires physical contact to function.
+                        </p>
+                        <p class="text-slate-500 text-sm">
+                            <strong>Key Feature:</strong> Acts as the "Dead Man's Switch" for engineering audits. To certify a design for Redstone Arsenal, Ethan must physically press the stone against his terminal, ensuring no remote AI can forge his signature.
                         </p>
                     </div>
                 </div>
@@ -383,21 +377,19 @@
         </div>
 
         <footer class="mt-12 pt-8 border-t border-slate-800 text-center text-slate-500 text-xs tracking-widest uppercase">
-            <p>2040 Ethan Haynes Archive // Verified via Huntsville Core</p>
+            <p>2040 Ethan Haynes Archive // Verified via Huntsville Core // Crypto-Hash: 0x9f22...ea1</p>
         </footer>
     </div>
 
     <script>
         function switchTab(tabName) {
-            document.getElementById('section-profile').classList.add('hidden');
-            document.getElementById('section-journal').classList.add('hidden');
-            document.getElementById('section-tech').classList.add('hidden');
-            document.getElementById('section-' + tabName).classList.remove('hidden');
-            
-            document.getElementById('btn-profile').classList.remove('active');
-            document.getElementById('btn-journal').classList.remove('active');
-            document.getElementById('btn-tech').classList.remove('active');
-            document.getElementById('btn-' + tabName).classList.add('active');
+            const sections = ['profile', 'journal', 'tech'];
+            sections.forEach(s => {
+                const sectionEl = document.getElementById('section-' + s);
+                const btnEl = document.getElementById('btn-' + s);
+                if (sectionEl) sectionEl.classList.toggle('hidden', s !== tabName);
+                if (btnEl) btnEl.classList.toggle('active', s === tabName);
+            });
         }
     </script>
 </body>
